@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Cherry Testimonials (TheFarEdge-2026)
- * Plugin URI:  https://github.com/waywardtech/thefaredge-space-wp-dev
+ * Plugin URI:  https://github.com/waywardtech/cherry-legacy-suite
  * Description: A testimonials management plugin for WordPress. Maintenance fork by SitesFareEdge — PHP 8.2/8.4 and WordPress 6.7+ compatibility patches. Original by Cherry Team.
  * Version:     1.1.4
  * Author:      SitesFareEdge (forked from Cherry Team)
- * Author URI:  https://github.com/waywardtech/thefaredge-space-wp-dev
+ * Author URI:  https://github.com/waywardtech/cherry-legacy-suite
  * Update URI:  false
  * Text Domain: cherry-testimonials
  * License:     GPL-3.0+

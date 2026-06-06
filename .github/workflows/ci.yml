@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  php-checks:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: [8.2]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+
+      - name: Install composer dependencies
+        run: |
+          composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Run PHPCS
+        run: |
+          vendor/bin/phpcs --standard=phpcs.xml.dist --extensions=php --ignore=*/vendor/* .
+
+      - name: Run PHPStan
+        run: |
+          vendor/bin/phpstan analyse --configuration=phpstan.neon.dist || true

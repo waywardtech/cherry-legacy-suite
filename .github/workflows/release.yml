@@ -1,0 +1,24 @@
+name: Build Release Zips
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create plugin and theme zips
+        run: |
+          mkdir -p artifacts
+          pushd plugins && for d in */ ; do zip -r ../artifacts/${d%/}.zip "$d"; done; popd
+          pushd themes && for d in */ ; do zip -r ../artifacts/${d%/}.zip "$d"; done; popd
+
+      - name: Upload Release Assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: artifacts/*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

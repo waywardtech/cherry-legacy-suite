@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Cherry Portfolio (TheFarEdge-2026)
- * Plugin URI:  https://github.com/waywardtech/thefaredge-space-wp-dev
+ * Plugin URI:  https://github.com/waywardtech/cherry-legacy-suite
  * Description: A portfolio plugin for WordPress. Maintenance fork by SitesFareEdge — PHP 8.2/8.4 and WordPress 6.7+ compatibility patches. Original by Cherry Team.
  * Version:     1.0.5.2
  * Author:      SitesFareEdge (forked from Cherry Team)
- * Author URI:  https://github.com/waywardtech/thefaredge-space-wp-dev
+ * Author URI:  https://github.com/waywardtech/cherry-legacy-suite
  * Update URI:  false
  * Text Domain: cherry-portfolio
  * License:     GPL-3.0+

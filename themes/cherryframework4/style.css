@@ -1,8 +1,8 @@
 /*
 Theme Name:  Cherry Framework (TheFarEdge-2026)
-Theme URI:   https://github.com/waywardtech/thefaredge-space-wp-dev
+Theme URI:   https://github.com/waywardtech/cherry-legacy-suite
 Author:      SitesFareEdge (forked from Cherry Team)
-Author URI:  https://github.com/waywardtech/thefaredge-space-wp-dev
+Author URI:  https://github.com/waywardtech/cherry-legacy-suite
 Description: Cherry Framework parent theme based on _s started theme for WordPress. Maintenance fork by SitesFareEdge — PHP 8.2/8.4 and WordPress 6.7+ compatibility patches: replaced removed each() in cssmin, dropped implicit-required defaults, replaced 'self' string callable with __CLASS__, declared dynamic properties, switched cherry_ajax injection to wp_add_inline_script, removed dead jQuery $.browser detection. Original by Cherry Team.
 Version:     4.0.5.7
 License:     GNU General Public License v2 or later
