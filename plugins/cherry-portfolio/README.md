@@ -1,20 +1,28 @@
 # Cherry Portfolio
-A portfolio plugin for WordPress.
-__Сompatibility: *Cherry Framewokr v.4+*__
 
-## Features
-* CPT Portfolio
-* Page template (named Portfolio) + single template
-* Shortcode (named cherry_portfolio)
-* 20+ custom hooks
-* Translation (Localization)
-* Ajax loading content
+Version: 1.0.5.2 — Maintenance fork (TheFarEdge-2026)
 
-## How to use
+Portfolio custom post type, templates and a shortcode originally from Cherry Framework. This fork fixes translation loading timing and template-call ordering to avoid compatibility warnings on modern WordPress.
 
-#### In a post/page
-Insert a shortcode `[cherry_portfolio]` to the post/page content.
+Quick start
 
+- Copy `plugins/cherry-portfolio/` into `wp-content/plugins/`
+- Activate in WP Admin → Plugins
+- Use the `[cherry_portfolio]` shortcode on a page, or use the provided Portfolio page template.
 
-## Help
-Found a bug? Feature requests? [Create an issue - Thanks!](https://github.com/CherryFramework/cherry-portfolio/issues)
+Compatibility
+
+- Tested on WordPress 6.7+ and PHP 8.2/8.4
+
+Notable fixes in this fork
+
+- Textdomain loading deferred to `init` for correct i18n on WP 6.7+
+- Template `__()` calls deferred to avoid `_doing_it_wrong` notices
+
+License
+
+- GPL-3.0+
+
+Support
+
+- Report issues in this repository.

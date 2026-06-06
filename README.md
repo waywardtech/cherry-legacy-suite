@@ -1,67 +1,39 @@
 # Cherry Framework Legacy Suite
 
-A maintained collection of six forked Cherry Framework plugins and the parent theme, patched for PHP 8.2/8.4 and WordPress 6.7+ compatibility.
+Maintenance forks of select Cherry Framework plugins and the parent theme, updated for PHP 8.2/8.4 and WordPress 6.7+ compatibility. This repository aggregates the patched code so site maintainers can install the legacy components without running into modern-PHP deprecations.
 
-## What's included
+Quick links
+- Plugins: `plugins/`
+- Theme: `themes/cherryframework4/`
+- License: `LICENSE`
 
-### Plugins
-- **cherry-plugin** — Core plugin (1.2.8.3) — PHP 7.4-deprecated `${0}` syntax removed
-- **cherry-portfolio** — Portfolio post type (1.0.5.2) — Textdomain JIT, page-template deferred `__()` calls
-- **cherry-shortcodes** — Shortcode builder (1.0.7.7) — `wp_add_inline_script` for AJAX, JS `$.browser` removed
-- **cherry-team** — Team post type (1.0.9) — Textdomain JIT, page-template deferred `__()` calls
-- **cherry-testimonials** — Testimonials (1.1.4) — Textdomain JIT, page-template deferred `__()` calls
+Installation
+- Manual: copy the plugin folder into `wp-content/plugins/` or the theme folder into `wp-content/themes/` and activate in WP admin.
+- Releases: download individual zips from GitHub Releases (built automatically on release).
 
-### Theme
-- **cherryframework4** — Parent theme (4.0.5.7) — `each()` removal, implicit defaults, dynamic properties, cherry_ajax refactored, JS `$.browser` removed
+Included forks (short summaries)
+- cherry-plugin — Core Cherry extensions and widgets (v1.2.8.3). Fixes PHP 7.4+ string-offset deprecations and preserves upstream behaviour.
+- cherry-portfolio — Portfolio CPT and templates (v1.0.5.2). Deferred textdomain and template-call fixes.
+- cherry-shortcodes — Shortcodes library (v1.0.7.7). Replaces removed jQuery patterns and modernises AJAX script injection.
+- cherry-team — Team CPT and widgets (v1.0.9). Internationalization and template deferral.
+- cherry-testimonials — Testimonials CPT and shortcodes (v1.1.4). Minor compat fixes and template updates.
+- cherryframework4 — Parent theme (v4.0.5.7). Removes `each()`, fixes dynamic properties, and modernises admin UI scripts.
 
-## Background
+Per-component READMEs
+See the plugin/theme folders for per-plugin README files with install/usage and changelog notes:
 
-The Cherry Framework was last actively maintained around 2015–2017. These forks address PHP 8.0+ removals and WordPress 6.7+ deprecations so legacy Cherry-based sites can continue running on modern WordPress and PHP versions without being forced to switch themes immediately.
+- `plugins/cherry-portfolio/README.md`
+- `plugins/cherry-shortcodes/README.md`
+- `plugins/cherry-plugin/README.md`
+- `plugins/cherry-team/README.md`
+- `plugins/cherry-testimonials/README.md`
+- `themes/cherryframework4/README.md`
 
-## Installation
+Contributing
+- Issues and PRs are welcome; open them in this repository. Keep changes small and focused: core fixes, PHP 8+ compatibility, and security patches only.
 
-### Option 1: Manual installation
-1. Download the `.zip` from the [Releases](../../releases) page
-2. Extract into `wp-content/plugins/` or `wp-content/themes/`
-3. Activate in WordPress admin
+License
+- GPL (same license as upstream Cherry Framework). See `LICENSE` for details.
 
-### Option 2: Copy individual plugins/theme
-Copy the specific plugin or theme folder from this repo into your site's `wp-content/`:
-```bash
-cp -r cherry-legacy-suite/plugins/cherry-portfolio your-site/wp-content/plugins/
-cp -r cherry-legacy-suite/themes/cherryframework4 your-site/wp-content/themes/
-```
-
-## Version numbering
-
-Each fork is version-bumped one patch level from upstream:
-- **Upstream:** cherry-plugin v1.2.8.2
-- **Fork:** cherry-plugin v1.2.8.3
-
-This preserves traceability and ensures proper cache-busting for assets.
-
-## Header customization
-
-Each plugin/theme includes a `(TheFarEdge-2026)` suffix in its name so WordPress admin clearly shows these are maintained forks, not upstream Cherry.
-
-## Unforked (still vanilla)
-
-These are not included here because they required no changes:
-- `cherry-charts`
-- `cherry-grid`
-- `cherry-simple-slider`
-- `cherry-shortcodes-templater`
-- `cherry-social`
-
-## License
-
-All files inherit the GPL license from the original Cherry Framework code.
-
-## Attribution
-
-Forked and maintained by **SitesFareEdge**.  
-Original code by Cherry Team (cherryframework.com, archived ~2017).
-
-## Questions or issues?
-
-Open an issue on GitHub or see the [development repo](https://github.com/waywardtech/thefaredge-space-wp-dev) for the full migration context.
+Support
+- This project was forked and is maintained by SitesFareEdge. For context about the original site and deployment, see the development repository: https://github.com/waywardtech/thefaredge-space-wp-dev
