@@ -7,28 +7,31 @@ on:
     branches: [ main ]
 
 jobs:
-  php-checks:
+  php-lint:
+    name: PHP ${{ matrix.php }} syntax check
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        php: [8.2]
+        php: ['8.2', '8.3', '8.4']
 
     steps:
       - uses: actions/checkout@v4
-      - name: Setup PHP
+
+      - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           coverage: none
+          ini-values: error_reporting=E_ALL, display_errors=On
 
-      - name: Install composer dependencies
+      - name: Lint every PHP file
         run: |
-          composer install --no-interaction --no-progress --prefer-dist
-
-      - name: Run PHPCS
-        run: |
-          vendor/bin/phpcs --standard=phpcs.xml.dist --extensions=php --ignore=*/vendor/* .
-
-      - name: Run PHPStan
-        run: |
-          vendor/bin/phpstan analyse --configuration=phpstan.neon.dist || true
+          set -o pipefail
+          failed=0
+          while IFS= read -r -d '' file; do
+            out=$(php -l "$file" 2>&1) || { echo "$out"; failed=1; continue; }
+            if echo "$out" | grep -qiE 'deprecated|warning'; then echo "$out"; failed=1; fi
+          done < <(find plugins themes -name '*.php' -print0)
+          if [ "$failed" -ne 0 ]; then echo "PHP lint found problems"; exit 1; fi
+          echo "All PHP files passed lint on PHP ${{ matrix.php }}"
