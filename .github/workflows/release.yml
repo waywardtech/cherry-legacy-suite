@@ -17,7 +17,7 @@ jobs:
           pushd themes && for d in */ ; do zip -r ../artifacts/${d%/}.zip "$d"; done; popd
 
       - name: Upload Release Assets
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v3
         with:
           files: artifacts/*.zip
         env:
